@@ -1,0 +1,16 @@
+{
+  "name": "pc-decor-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SKYCRUMB Studio 3D WebGL Storefront & Multi-Warehouse ERP/WMS (SQLite / SQL Server)",
+  "scripts": {
+    "start": "node server.mjs",
+    "start:mssql": "node -e \"process.env.DB_CLIENT='mssql'; import('./server.mjs');\"",
+    "db:migrate-mssql": "node scripts/server/migrate-sqlite-to-mssql.mjs",
+    "db:migrate-mssql:reset": "node scripts/server/migrate-sqlite-to-mssql.mjs --reset"
+  },
+  "dependencies": {
+    "mssql": "^11.0.1"
+  }
+}
+

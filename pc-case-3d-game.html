@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYCRUMB 3D Lab — Lắp Ráp Case PC 3D Săn Voucher</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230284c7'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='11' font-weight='800' fill='white' text-anchor='middle'%3ESKY%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/commerce.css" />
+  <link rel="stylesheet" href="./styles/pc-case-3d-game.css" />
+</head>
+<body class="lab3d-body">
+  <header class="lab3d-topbar">
+    <div class="lab3d-brand-group">
+      <a href="./index.html#sec6CaseGame" class="lab3d-btn lab3d-btn-ghost" id="backHomeBtn">
+        <span>&larr; Trang chủ</span>
+      </a>
+      <div class="lab3d-brand-title">
+        <span class="lab3d-kicker">SKYCRUMB STUDIO 3D LAB</span>
+        <strong>Lắp Ráp Case PC 3D Săn Voucher</strong>
+      </div>
+    </div>
+
+    <div class="lab3d-status-group">
+      <span class="lab3d-pill is-progress" id="gameProgressPill"><b>0/14</b> Linh kiện 3D đã lắp</span>
+      <span class="lab3d-pill is-tier-max" id="gameVoucherTierPill">Hạng thưởng tối đa: <b>1.000.000đ</b> (0 Gợi ý)</span>
+    </div>
+
+    <div class="lab3d-action-group">
+      <button type="button" class="lab3d-btn" id="fullscreenBtn">Toàn màn hình</button>
+      <button type="button" class="lab3d-btn" id="restartUnityBtn">Chơi lại</button>
+      <a href="./cart.html" class="lab3d-btn lab3d-btn-primary">Giỏ hàng</a>
+    </div>
+  </header>
+
+  <main class="lab3d-stage">
+    <canvas id="unityGameCanvas" tabindex="-1"></canvas>
+
+    <div class="lab3d-loader" id="unityGameLoader">
+      <span class="lab3d-loader-badge">UNITY 6 URP 3D ENGINE &bull; MSAA 4X</span>
+      <h1 class="lab3d-loader-title" id="loaderStatus">Đang chuẩn bị phòng Studio lắp Case PC 3D...</h1>
+      <p class="lab3d-loader-sub">Tự động khởi tạo mô hình Blender 3D chân thực &amp; 14 linh kiện tỷ lệ 1:1 trên bàn kỹ thuật (tách riêng 2 RAM, 3 SSD, cụm quạt hông/đáy/sau &amp; tản nước AIO)</p>
+      <div class="lab3d-bar-wrap">
+        <div class="lab3d-bar-fill" id="loaderBarFill" style="width:4%;"></div>
+      </div>
+      <div class="lab3d-pct" id="loaderPct">4%</div>
+      <div class="lab3d-error" id="loaderError" hidden></div>
+    </div>
+  </main>
+
+  <div class="lab3d-modal-backdrop" id="voucherModal" hidden>
+    <div class="lab3d-modal-card" role="dialog" aria-modal="true" aria-labelledby="voucherModalHeading">
+      <div class="lab3d-modal-head">
+        <span class="lab3d-tier-badge" id="wonTierBadge">VOUCHER THƯỞNG LẮP CASE 3D</span>
+        <span class="lab3d-hint-badge" id="wonHintSummaryBadge">0 lần dùng Gợi ý</span>
+      </div>
+      <h2 id="voucherModalHeading">Hoàn tất lắp ráp 14/14 linh kiện 3D!</h2>
+
+      <div class="lab3d-roll-box" id="voucherRollStage">
+        <span>Đang quay rương phần thưởng theo hạng đạt được...</span>
+        <strong id="rollCodeText">CASE1TR</strong>
+      </div>
+
+      <div class="lab3d-won-box" id="voucherResultStage" hidden>
+        <div class="lab3d-won-main">
+          <div>
+            <div class="lab3d-won-title" id="wonVoucherTitle">Giảm 1.000.000đ</div>
+            <div class="lab3d-won-cond" id="wonVoucherCond">Áp dụng bộ PC / Setup từ 25TR</div>
+          </div>
+          <code class="lab3d-won-code" id="wonVoucherCode">CASE1TR</code>
+        </div>
+        <div class="lab3d-won-stats" id="wonStatsLine">Thời gian: 0s &bull; Độ chuẩn xác: 100% &bull; Sai vị trí: 0 &bull; Gợi ý: 0</div>
+        <div class="lab3d-penalty-note" id="wonPenaltyNote" hidden></div>
+        <div class="lab3d-won-actions">
+          <button type="button" class="lab3d-btn" id="copyWonVoucherBtn">Sao chép mã</button>
+          <button type="button" class="lab3d-btn lab3d-btn-primary" id="applyWonVoucherBtn">Áp dụng ngay vào Giỏ</button>
+          <a href="./cart.html" class="lab3d-btn">Mở Giỏ hàng</a>
+          <button type="button" class="lab3d-btn" id="replayModalBtn">Chơi lượt mới</button>
+          <a href="./index.html#sec6CaseGame" class="lab3d-btn lab3d-btn-ghost">Quay lại Trang chủ</a>
+        </div>
+        <div class="lab3d-applied-note" id="wonAppliedNote"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./scripts/shared/commerce.js"></script>
+  <script type="module" src="./scripts/pages/pc-case-3d-game.js"></script>
+</body>
+</html>

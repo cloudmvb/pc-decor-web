@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYCRUMB Studio — Chi tiết Sản phẩm Chính hãng</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230284c7'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='11' font-weight='800' fill='white' text-anchor='middle'%3ESKY%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/commerce.css" />
+  <link rel="stylesheet" href="./styles/subpage-shell.css" />
+</head>
+<body data-theme="sky">
+  <header class="s25-topbar">
+    <div class="tb-group">
+      <a class="tb-item tb-logo icon" href="./index.html" aria-label="SKYCRUMB Studio — Trang chủ Studio 3D" title="SKYCRUMB Studio — Trang chủ Studio 3D"><span class="tb-mark"><svg class="tb-svg-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.27 6.96 8.73 4.88 8.73-4.88"/><path d="M12 22.08V12"/></svg></span></a>
+      <a class="tb-item icon" href="./shop.html?cat=ALL" aria-label="Cửa hàng linh kiện" title="Cửa hàng linh kiện">
+        <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520Z"/></svg>
+      </a>
+      <a class="tb-item icon" href="./index.html?sec=3" aria-label="Phối cấu hình PC" title="Phối cấu hình PC">
+        <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M444-444H240v-72h204v-204h72v204h204v72H516v204h-72v-204Z"/></svg>
+      </a>
+    </div>
+    <div class="tb-group">
+      <button type="button" class="tb-item tb-icon-badge tb-wish-btn" id="tbWishBtn" onclick="window.S25.openWishDrawer()" aria-label="Yêu thích" title="Sản phẩm yêu thích">
+        <svg class="tb-svg-stroke" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span class="tb-badge wish-badge" id="tbWishBadge">0</span>
+      </button>
+      <a class="tb-item icon tb-auth-pill" id="tbAuthLink" href="./login.html" aria-label="Tài khoản và tra cứu đơn hàng" title="Tài khoản và tra cứu đơn hàng">
+        <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="8.75" rx="4.13" ry="4.5"/><path d="M3 20.75a9.1 6.5 0 0 1 18 0"/></svg>
+      </a>
+      <a class="tb-item tb-icon-badge" id="tbCartBtn" href="./cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">
+        <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1,3 5,3 7.5,16 19,16 23,7 10,7"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        <span class="tb-badge" id="tbCartBadge" data-s25-cart-badge>0</span>
+      </a>
+    </div>
+  </header>
+
+  <div id="pdpUspHost"></div>
+
+  <main class="s25-page-shell" id="pdpMain">
+    <nav class="detail-breadcrumb" id="pdpBreadcrumb" aria-label="Điều hướng danh mục" style="margin-bottom:14px;"></nav>
+
+    <section class="s25-pdp-card" id="pdpCardShell" aria-label="Thông tin chi tiết sản phẩm">
+      <div class="s25-pdp-layout">
+        <!-- LEFT STICKY MEDIA GALLERY -->
+        <div class="s25-pdp-gallery">
+          <div class="s25-pdp-stage">
+            <img id="pdpMainImg" src="./assets/images/placeholders/hardware-wide.png" alt="Hình ảnh sản phẩm" />
+            <button type="button" class="s25-pdp-nav-btn prev" onclick="stepPdpPhoto(-1)" aria-label="Ảnh trước">&lsaquo;</button>
+            <button type="button" class="s25-pdp-nav-btn next" onclick="stepPdpPhoto(1)" aria-label="Ảnh tiếp">&rsaquo;</button>
+            <span class="s25-pdp-counter" id="pdpPhotoCounter">1 / 1</span>
+          </div>
+          <div class="s25-pdp-thumbs" id="pdpThumbsStrip"></div>
+        </div>
+
+        <!-- RIGHT BUY BOX & ACCORDIONS -->
+        <div class="s25-pdp-info">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span class="product-badge" id="pdpCatBadge">SKYCRUMB // STUDIO</span>
+            <span class="product-badge" id="pdpStockBadge">Còn hàng sẵn giao</span>
+            <span class="product-badge disc" id="pdpDiscBadge" style="display:none;"></span>
+          </div>
+
+          <h1 class="s25-pdp-title" id="pdpTitle">Đang tải sản phẩm...</h1>
+          <div id="pdpMeta" style="font-size:0.78rem;color:var(--text-muted);font-weight:600;"></div>
+
+          <div class="s25-pdp-price-box">
+            <div>
+              <div style="font-size:0.68rem;font-weight:800;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;">Giá ưu đãi tại SKYCRUMB Lab</div>
+              <div class="s25-pdp-price" id="pdpPrice">0đ</div>
+            </div>
+            <div class="s25-pdp-oldprice" id="pdpOldPrice"></div>
+          </div>
+
+          <div id="pdpVariantsBox" style="display:flex;flex-direction:column;gap:10px;"></div>
+
+          <div class="s25-leadtime-banner" style="grid-template-columns:1fr;padding:12px 14px;gap:8px;">
+            <div class="s25-lt-cell" style="border-right:none;padding-right:0;">
+              <div class="s25-lt-ico" id="pdpShipIco" style="width:34px;height:34px;"></div>
+              <div>
+                <small>TIẾN ĐỘ LẮP RÁP &amp; GIAO NHẬN</small>
+                <b id="pdpLeadtimeText">Giao nhanh 2h (Hà Nội &amp; TP.HCM) • PC Build Stress-Test 24h: 2–3 ngày</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="s25-pdp-cta-row">
+            <button type="button" class="sec3-btn-primary" id="pdpAddCartBtn">
+              <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1,3 5,3 7.5,16 19,16 23,7 10,7"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+              <span>Thêm vào Giỏ hàng</span>
+            </button>
+            <button type="button" class="sec3-btn-secondary" id="pdpBuyNowBtn">
+              <span>Mua ngay &rarr; Giỏ hàng</span>
+            </button>
+            <button type="button" class="s25-pdp-wish-btn" id="pdpWishBtn" aria-label="Lưu vào Yêu thích"></button>
+          </div>
+
+          <div class="s25-pdp-toast" id="pdpAddedToast" role="status">
+            <span id="pdpAddedText">Đã thêm sản phẩm vào giỏ hàng!</span>
+            <a href="./cart.html" style="color:var(--accent);font-weight:800;text-decoration:none;">Mở Giỏ hàng &rarr;</a>
+          </div>
+
+          <div class="detail-accordions" id="pdpAccordions"></div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;padding-top:4px;">
+            <a id="pdpBrowseCatLink" href="./shop.html?cat=ALL" class="sec3-btn-secondary" style="padding:10px 14px;font-size:0.78rem;">&lsaquo; Xem thêm cùng danh mục</a>
+            <a id="pdpExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="sec3-btn-secondary" style="padding:10px 14px;font-size:0.78rem;display:none;"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s25-pdp-related" id="pdpRelatedSection" aria-label="Sản phẩm liên quan">
+      <div class="drawer-category-tag">GỢI Ý CÙNG CẤU HÌNH // RELATED PRODUCTS</div>
+      <h2 style="font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:800;margin-top:4px;">Có thể bạn cũng cần cho góc máy</h2>
+      <div class="s25-pdp-rel-grid" id="pdpRelatedGrid"></div>
+    </section>
+  </main>
+
+  <footer id="pdpFooterHost"></footer>
+
+  <script src="./data/catalog/store-catalog.js"></script>
+  <script src="./scripts/shared/commerce.js"></script>
+  <script type="module" src="./scripts/pages/product.js"></script>
+</body>
+</html>

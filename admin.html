@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYCRUMB Enterprise ERP &amp; WMS — Hệ thống Quản trị Đa Kho</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230284c7'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='11' font-weight='800' fill='white' text-anchor='middle'%3ESKY%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/admin.css" />
+</head>
+<body>
+  <!-- TOP BAR (MODELED AFTER BINH-STORE ADMIN TOPBAR) -->
+  <header class="admin-topbar">
+    <div class="admin-topbar-left">
+      <div class="admin-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.27 6.96 8.73 4.88 8.73-4.88"/><path d="M12 22.08V12"/></svg>
+      </div>
+      <div>
+        <div class="admin-topbar-title">
+          <span>SKYCRUMB ENTERPRISE ERP &amp; WMS</span>
+          <span class="admin-db-pill" id="erpDbEngineBadge">SQLITE / SQL SERVER</span>
+        </div>
+        <div class="admin-topbar-sub">Quản lý Đa Kho Toàn Quốc (5 Hubs) • Mua hàng ROP • Bán hàng POS/B2B/Web3D • Công nợ &amp; Phân quyền RBAC</div>
+      </div>
+    </div>
+
+    <div class="admin-topbar-right">
+      <div class="admin-user-chip">
+        <strong id="erpTopUserName">Đang xác thực...</strong>
+        <small id="erpTopUserRole">---</small>
+      </div>
+      <a href="./index.html" class="admin-topbar-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>VỀ CỬA HÀNG</span>
+      </a>
+      <button type="button" class="admin-topbar-btn danger" id="erpLogoutBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+        <span>ĐĂNG XUẤT</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+    <!-- HORIZONTAL MODULE TABS (PRUNED AUTOMATICALLY BY RBAC ROLE) -->
+    <nav class="admin-tabs-nav" id="erpTabsNav" role="tablist" aria-label="Phân hệ Quản trị ERP">
+      <button type="button" class="admin-tab-btn active" role="tab" data-tab="analytics" data-perms="">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        <span>Tổng quan &amp; Báo cáo</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="products" data-perms="PRODUCTS">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        <span>Sản phẩm</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="categories" data-perms="CATEGORIES">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+        <span>Loại hàng</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="purchases" data-perms="PURCHASES">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8 11 4 4 4-4"/><path d="M8 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4"/></svg>
+        <span>Mua hàng</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="sales" data-perms="SALES">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+        <span>Bán hàng</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="orders" data-perms="SALES,INVENTORY">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+        <span>Đơn đa kênh</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="inventory" data-perms="INVENTORY,INVENTORY_VIEW">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12"/><path d="M6 14h12"/><rect width="12" height="12" x="6" y="10"/></svg>
+        <span>Kho</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="cashbook" data-perms="SALES,PURCHASES,CUSTOMERS,SUPPLIERS">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>
+        <span>Thu chi</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="partners" data-perms="CUSTOMERS,SUPPLIERS,SALES,PURCHASES">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Khách &amp; NCC</span>
+      </button>
+      <button type="button" class="admin-tab-btn" role="tab" data-tab="users" data-perms="USERS">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>Nhân sự &amp; RBAC</span>
+      </button>
+    </nav>
+
+    <!-- TAB PANELS -->
+    <section id="tab-analytics" class="admin-tab-panel active"></section>
+    <section id="tab-products" class="admin-tab-panel"></section>
+    <section id="tab-categories" class="admin-tab-panel"></section>
+    <section id="tab-purchases" class="admin-tab-panel"></section>
+    <section id="tab-sales" class="admin-tab-panel"></section>
+    <section id="tab-orders" class="admin-tab-panel"></section>
+    <section id="tab-inventory" class="admin-tab-panel"></section>
+    <section id="tab-cashbook" class="admin-tab-panel"></section>
+    <section id="tab-partners" class="admin-tab-panel"></section>
+    <section id="tab-users" class="admin-tab-panel"></section>
+  </main>
+
+  <!-- SHARED DETAIL & A4 PRINT MODAL -->
+  <div class="admin-modal-overlay" id="adminDetailModal" role="dialog" aria-modal="true">
+    <div class="admin-modal-box">
+      <div class="admin-modal-head">
+        <strong id="adminDetailTitle" style="font-size:0.95rem;">Chi tiết chứng từ</strong>
+        <button type="button" class="erp-btn sm erp-btn-outline" id="adminDetailCloseBtn">Đóng</button>
+      </div>
+      <div class="admin-modal-body" id="adminDetailBody"></div>
+      <div class="admin-modal-foot">
+        <button type="button" class="erp-btn erp-btn-outline" id="adminDetailCloseFoot">Đóng</button>
+        <button type="button" class="erp-btn erp-btn-navy" id="adminDetailPrintBtn">In chứng từ (A4)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARED DEBT PAYMENT MODAL -->
+  <div class="admin-modal-overlay" id="adminPaymentModal" role="dialog" aria-modal="true">
+    <div class="admin-modal-box" style="max-width:480px;">
+      <div class="admin-modal-head">
+        <strong id="adminPayTitle" style="font-size:0.95rem;">Thanh toán Công nợ</strong>
+        <button type="button" class="erp-btn sm erp-btn-outline" id="adminPayCloseBtn">Đóng</button>
+      </div>
+      <div class="admin-modal-body" id="adminPayBody"></div>
+    </div>
+  </div>
+
+  <div class="admin-toast-host" id="adminToastHost"></div>
+
+  <script src="./scripts/shared/commerce.js"></script>
+  <script type="module" src="./scripts/pages/admin/main.js"></script>
+</body>
+</html>

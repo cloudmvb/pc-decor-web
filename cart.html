@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYCRUMB Studio — Giỏ hàng &amp; Thanh toán Bảo mật</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230284c7'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='11' font-weight='800' fill='white' text-anchor='middle'%3ESKY%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/commerce.css" />
+  <link rel="stylesheet" href="./styles/subpage-shell.css" />
+  <link rel="stylesheet" href="./styles/cart.css" />
+</head>
+<body data-theme="sky">
+  <header class="s25-topbar">
+    <div class="tb-group">
+      <a class="tb-item tb-logo icon" href="./index.html" aria-label="SKYCRUMB Studio — Trang chủ Studio 3D" title="SKYCRUMB Studio — Trang chủ Studio 3D"><span class="tb-mark"><svg class="tb-svg-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.27 6.96 8.73 4.88 8.73-4.88"/><path d="M12 22.08V12"/></svg></span></a>
+      <a class="tb-item icon" href="./shop.html?cat=ALL" aria-label="Cửa hàng linh kiện" title="Cửa hàng linh kiện">
+        <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520Z"/></svg>
+      </a>
+      <a class="tb-item icon" href="./index.html?sec=3" aria-label="Phối cấu hình PC" title="Phối cấu hình PC">
+        <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M444-444H240v-72h204v-204h72v204h204v72H516v204h-72v-204Z"/></svg>
+      </a>
+    </div>
+    <div class="tb-group">
+      <button type="button" class="tb-item tb-icon-badge tb-wish-btn" id="tbWishBtn" onclick="window.S25.openWishDrawer()" aria-label="Yêu thích" title="Sản phẩm yêu thích">
+        <svg class="tb-svg-stroke" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span class="tb-badge wish-badge" id="tbWishBadge">0</span>
+      </button>
+      <a class="tb-item icon tb-auth-pill" id="tbAuthLink" href="./login.html" aria-label="Tài khoản và tra cứu đơn hàng" title="Tài khoản và tra cứu đơn hàng">
+        <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="8.75" rx="4.13" ry="4.5"/><path d="M3 20.75a9.1 6.5 0 0 1 18 0"/></svg>
+      </a>
+      <a class="tb-item tb-icon-badge" id="tbCartBtn" href="./cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">
+        <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1,3 5,3 7.5,16 19,16 23,7 10,7"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        <span class="tb-badge" data-s25-cart-badge>0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="s25-page-shell">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px;">
+      <div>
+        <div class="drawer-category-tag">APEX-INSPIRED CART // GIỎ HÀNG CỦA BẠN</div>
+        <h1 style="font-size:clamp(1.9rem,3.6vw,3rem);font-weight:800;letter-spacing:-0.03em;margin-top:4px;">Giỏ hàng &amp; Bảo vệ Vận chuyển</h1>
+      </div>
+      <a href="./shop.html?cat=ALL" class="sec3-btn-secondary" style="padding:10px 16px;">&lsaquo; Tiếp tục mua sắm</a>
+    </div>
+
+    <!-- LEAD TIMES BANNER -->
+    <section class="s25-leadtime-banner" aria-label="Thời gian xử lý và giao nhận">
+      <div class="s25-lt-cell">
+        <div class="s25-lt-ico" id="ltIco1"></div>
+        <div><small>PC Tự Phối Lắp Ráp</small><b>2 – 3 Ngày làm việc (Test 24h)</b></div>
+      </div>
+      <div class="s25-lt-cell">
+        <div class="s25-lt-ico" id="ltIco2"></div>
+        <div><small>Linh kiện &amp; PC Dựng Sẵn</small><b>Giao nhanh 2 – 24 Giờ nội thành</b></div>
+      </div>
+      <div class="s25-lt-cell">
+        <div class="s25-lt-ico" id="ltIco3"></div>
+        <div><small>An tâm tuyệt đối</small><b>Đổi mới 1:1 trong 30 ngày đầu</b></div>
+      </div>
+    </section>
+
+    <div id="cartPageHost"></div>
+  </main>
+
+  <footer id="s25FooterHost"></footer>
+
+  <!-- SECURE CHECKOUT SIMULATION MODAL -->
+  <div class="checkout-modal-backdrop" id="checkoutBackdrop" onclick="if(event.target===this) closeCheckoutModal()">
+    <div class="checkout-modal-card" role="dialog" aria-modal="true" aria-label="Xác nhận đặt hàng bảo mật">
+      <div class="drawer-category-tag">SKYCRUMB // SECURE CHECKOUT</div>
+      <h2 style="font-size:1.4rem;font-weight:800;margin:6px 0 12px;">Hoàn tất thông tin giao nhận</h2>
+      <div id="checkoutModalBody"></div>
+    </div>
+  </div>
+
+  <script src="./scripts/shared/commerce.js"></script>
+  <script type="module" src="./scripts/pages/cart.js"></script>
+</body>
+</html>

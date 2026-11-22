@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKYCRUMB Studio — Đăng nhập, Đăng ký &amp; Tra cứu Đơn hàng</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230284c7'/%3E%3Ctext x='16' y='21' font-family='sans-serif' font-size='11' font-weight='800' fill='white' text-anchor='middle'%3ESKY%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/commerce.css" />
+  <link rel="stylesheet" href="./styles/subpage-shell.css" />
+  <link rel="stylesheet" href="./styles/auth.css" />
+</head>
+<body data-theme="sky">
+  <header class="s25-topbar">
+    <div class="tb-group">
+      <a class="tb-item tb-logo icon" href="./index.html" aria-label="SKYCRUMB Studio — Trang chủ Studio 3D" title="SKYCRUMB Studio — Trang chủ Studio 3D"><span class="tb-mark"><svg class="tb-svg-stroke" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3.27 6.96 8.73 4.88 8.73-4.88"/><path d="M12 22.08V12"/></svg></span></a>
+      <a class="tb-item icon" href="./shop.html?cat=ALL" aria-label="Cửa hàng linh kiện" title="Cửa hàng linh kiện">
+        <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520Z"/></svg>
+      </a>
+      <a class="tb-item icon" href="./index.html?sec=3" aria-label="Phối cấu hình PC" title="Phối cấu hình PC">
+        <svg viewBox="0 -960 960 960" aria-hidden="true"><path d="M444-444H240v-72h204v-204h72v204h204v72H516v204h-72v-204Z"/></svg>
+      </a>
+    </div>
+    <div class="tb-group">
+      <button type="button" class="tb-item tb-icon-badge tb-wish-btn" id="tbWishBtn" onclick="window.S25.openWishDrawer()" aria-label="Yêu thích" title="Sản phẩm yêu thích">
+        <svg class="tb-svg-stroke" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span class="tb-badge wish-badge" id="tbWishBadge">0</span>
+      </button>
+      <a class="tb-item icon tb-auth-pill" id="tbAuthLink" href="./login.html" aria-label="Tài khoản và tra cứu đơn hàng" title="Tài khoản và tra cứu đơn hàng">
+        <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="8.75" rx="4.13" ry="4.5"/><path d="M3 20.75a9.1 6.5 0 0 1 18 0"/></svg>
+      </a>
+      <a class="tb-item tb-icon-badge" id="tbCartBtn" href="./cart.html" aria-label="Giỏ hàng" title="Giỏ hàng">
+        <svg class="tb-svg-stroke nzxt-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1,3 5,3 7.5,16 19,16 23,7 10,7"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        <span class="tb-badge" data-s25-cart-badge>0</span>
+      </a>
+    </div>
+  </header>
+
+  <div id="authUspHost"></div>
+
+  <main class="s25-auth-wrap">
+    <!-- SIGNED-IN DASHBOARD (hidden if logged out) -->
+    <section class="s25-auth-card" id="signedInCard" style="display:none;">
+      <div class="drawer-category-tag">SKYCRUMB STUDIO // TÀI KHOẢN ĐANG ĐĂNG NHẬP</div>
+      <h1 id="dashWelcome" style="font-size:1.55rem;font-weight:800;margin:8px 0 4px;">Xin chào</h1>
+      <p id="dashEmail" style="font-size:0.84rem;color:var(--text-muted);margin-bottom:14px;"></p>
+      <div id="dashAdminCtaWrap" style="display:none;margin-bottom:14px;">
+        <a href="./admin.html" class="sec3-btn-primary" style="width:100%;text-decoration:none;justify-content:center;padding:12px 16px;">
+          <span>Mở Cổng Quản Lý Hệ Thống ERP</span>
+        </a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <a href="./account.html" class="sec3-btn-secondary" style="text-decoration:none;justify-content:center;">Hồ sơ &amp; Đơn hàng</a>
+        <a href="./cart.html" class="sec3-btn-secondary" style="text-decoration:none;justify-content:center;">Giỏ hàng (<span id="dashCartCount">0</span>)</a>
+        <a href="./shop.html?wish=1" class="sec3-btn-secondary" style="text-decoration:none;justify-content:center;">Yêu thích (<span id="dashWishCount">0</span>)</a>
+        <a href="./shop.html?cat=ALL" class="sec3-btn-secondary" style="text-decoration:none;justify-content:center;">Cửa hàng Studio</a>
+      </div>
+      <div style="margin-bottom:18px;">
+        <div class="drawer-category-tag" style="margin-bottom:8px;">Lịch sử Đơn hàng Gần đây</div>
+        <div id="dashOrdersList" style="display:flex;flex-direction:column;gap:8px;"></div>
+      </div>
+      <button type="button" class="auth-submit-btn" onclick="window.S25.logoutUser(); renderAuthView();">Đăng xuất tài khoản</button>
+    </section>
+
+    <!-- AUTH CARD -->
+    <section class="s25-auth-card" id="guestAuthCard">
+      <div class="drawer-category-tag">SKYCRUMB // UNIFIED ACCOUNT &amp; ERP PORTAL</div>
+      <h1 style="font-size:1.65rem;font-weight:800;margin:6px 0 4px;letter-spacing:-0.025em;" id="authHeadline">Đăng nhập tài khoản</h1>
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:18px;">Đăng nhập bằng tài khoản Khách hàng (đồng bộ đơn hàng, Wishlist) hoặc Nhân sự nội bộ (Quản trị kho &amp; bán hàng ERP).</p>
+
+      <div class="auth-mode-switch" role="radiogroup" aria-label="Chọn trạng thái tài khoản">
+        <label class="auth-radio-opt active" id="modeLoginLabel">
+          <input type="radio" name="authMode" value="login" checked onchange="setAuthMode('login')" />
+          <span>Đã có tài khoản</span>
+        </label>
+        <label class="auth-radio-opt" id="modeRegLabel">
+          <input type="radio" name="authMode" value="register" onchange="setAuthMode('register')" />
+          <span>Khách hàng mới</span>
+        </label>
+      </div>
+
+      <div class="auth-msg-box" id="authMsgBox"></div>
+
+      <form id="authForm" onsubmit="return handleAuthSubmit(event)">
+        <div id="regNameGroup" style="display:none;">
+          <div class="auth-float-field">
+            <input type="text" id="authName" placeholder=" " autocomplete="name" />
+            <label for="authName">Họ và tên khách hàng *</label>
+          </div>
+          <div class="auth-float-field">
+            <input type="tel" id="authPhone" placeholder=" " autocomplete="tel" />
+            <label for="authPhone">Số điện thoại (VD: 0912345678) *</label>
+          </div>
+        </div>
+
+        <div class="auth-float-field">
+          <input type="text" id="authEmail" placeholder=" " autocomplete="username" required />
+          <label for="authEmail" id="authEmailLabel">Tên đăng nhập hoặc Email *</label>
+        </div>
+
+        <div id="regConfirmEmailGroup" style="display:none;">
+          <div class="auth-float-field">
+            <input type="email" id="authEmailConfirm" placeholder=" " autocomplete="email" />
+            <label for="authEmailConfirm">Xác nhận lại Email *</label>
+          </div>
+        </div>
+
+        <div class="auth-float-field">
+          <input type="password" id="authPassword" placeholder=" " autocomplete="current-password" required oninput="checkPwdRules()" />
+          <label for="authPassword">Mật khẩu *</label>
+          <button type="button" class="auth-eye-btn" aria-label="Hiện hoặc ẩn mật khẩu" onclick="togglePwdEye('authPassword', this)"></button>
+        </div>
+
+        <div id="regExtras" style="display:none;">
+          <div class="auth-pwd-rules" id="pwdRulesBar">
+            <span class="auth-rule-pill" id="ruleLen">&ge; 6 ký tự</span>
+            <span class="auth-rule-pill" id="ruleCase">Chữ hoa &amp; thường</span>
+            <span class="auth-rule-pill" id="ruleNum">Ít nhất 1 số</span>
+          </div>
+
+          <div class="auth-float-field">
+            <input type="password" id="authPasswordConfirm" placeholder=" " autocomplete="new-password" oninput="checkPwdRules()" />
+            <label for="authPasswordConfirm">Xác nhận Mật khẩu *</label>
+            <button type="button" class="auth-eye-btn" aria-label="Hiện hoặc ẩn mật khẩu xác nhận" onclick="togglePwdEye('authPasswordConfirm', this)"></button>
+          </div>
+
+          <div class="auth-float-field">
+            <select id="authRegion" style="width:100%;height:48px;padding:12px 14px;border-radius:12px;border:1px solid var(--glass-border);background:#fff;font:inherit;font-size:0.86rem;">
+              <option value="Miền Bắc">Khu vực: Miền Bắc (Hub Hà Nội)</option>
+              <option value="Miền Trung">Khu vực: Miền Trung (Hub Đà Nẵng)</option>
+              <option value="Miền Nam">Khu vực: Miền Nam (Hub TP.HCM)</option>
+            </select>
+          </div>
+
+          <label class="auth-check-line">
+            <input type="checkbox" id="authIsB2B" onchange="document.getElementById('b2bCompanyWrap').style.display=this.checked?'block':'none'" />
+            <span>Tôi là Khách hàng Doanh nghiệp (B2B — cần xuất VAT)</span>
+          </label>
+          <div id="b2bCompanyWrap" style="display:none;">
+            <div class="auth-float-field">
+              <input type="text" id="authCompany" placeholder=" " />
+              <label for="authCompany">Tên Công ty &amp; Mã số thuế</label>
+            </div>
+          </div>
+
+          <label class="auth-check-line">
+            <input type="checkbox" id="authNewsletter" checked />
+            <span>Nhận bản tin GPU thế hệ mới &amp; ưu đãi độc quyền Studio</span>
+          </label>
+        </div>
+
+        <div id="loginOptionsRow" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+          <label class="auth-check-line" style="margin-bottom:0;">
+            <input type="checkbox" id="authRemember" checked />
+            <span>Ghi nhớ đăng nhập</span>
+          </label>
+          <button type="button" onclick="toggleForgotBox()" style="background:none;border:none;color:var(--accent);font:inherit;font-size:0.78rem;font-weight:800;cursor:pointer;text-decoration:underline;">Quên mật khẩu?</button>
+        </div>
+
+        <div id="forgotPwdPanel" style="display:none;margin-bottom:14px;padding:12px;border-radius:12px;background:rgba(224,242,254,0.65);border:1px solid rgba(2,132,199,0.22);font-size:0.78rem;">
+          <div style="font-weight:800;margin-bottom:6px;">Khôi phục mật khẩu nhanh</div>
+          <div style="display:flex;gap:8px;">
+            <input type="email" id="forgotEmailInp" placeholder="Nhập email đã đăng ký..." style="flex:1;height:36px;padding:0 10px;border-radius:9px;border:1px solid var(--glass-border);" />
+            <button type="button" class="sec3-btn-primary" style="padding:0 14px;" onclick="document.getElementById('forgotNote').textContent='Đã gửi liên kết đặt lại mật khẩu vào hộp thư (mô phỏng).'">Gửi mã</button>
+          </div>
+          <div id="forgotNote" style="color:#047857;font-weight:700;margin-top:6px;"></div>
+        </div>
+
+        <button type="submit" class="auth-submit-btn" id="authSubmitBtn">Đăng nhập</button>
+      </form>
+
+      <div class="auth-divider">đăng nhập nhanh tài khoản mẫu (mật khẩu: 123456)</div>
+      <div class="auth-erp-grid">
+        <button type="button" class="auth-erp-btn is-primary" onclick="quickApiDemoLogin('admin','123456', true)">
+          <strong>Super Admin (ERP)</strong>
+          <small>admin • Toàn quyền 5 kho</small>
+        </button>
+        <button type="button" class="auth-erp-btn" onclick="quickApiDemoLogin('kho.hn','123456', true)">
+          <strong>Thủ Kho Miền Bắc</strong>
+          <small>kho.hn • Tồn kho &amp; Nhập</small>
+        </button>
+        <button type="button" class="auth-erp-btn" onclick="quickApiDemoLogin('banhang.hn','123456', true)">
+          <strong>Sales POS &amp; B2B</strong>
+          <small>banhang.hn • Bán hàng &amp; KH</small>
+        </button>
+        <button type="button" class="auth-erp-btn" onclick="quickApiDemoLogin('muahang','123456', true)">
+          <strong>Chuyên Viên Mua Hàng</strong>
+          <small>muahang • NCC &amp; ROP</small>
+        </button>
+        <button type="button" class="auth-erp-btn" onclick="quickApiDemoLogin('vip.creator@skycrumb.vn','123456', false)">
+          <strong>Khách Hàng VIP</strong>
+          <small>vip.creator@skycrumb.vn</small>
+        </button>
+        <button type="button" class="auth-erp-btn" onclick="quickApiDemoLogin('procurement@auroravfx.vn','123456', false)">
+          <strong>Khách Doanh Nghiệp B2B</strong>
+          <small>Aurora VFX Studio</small>
+        </button>
+      </div>
+
+      <!-- GUEST ORDER TRACKING -->
+      <div class="auth-guest-panel" id="guest-track">
+        <button type="button" class="sec3-btn-secondary" style="width:100%;" onclick="var p=document.getElementById('guestTrackPanel'); p.style.display=p.style.display==='none'?'block':'none'">
+          <span>Khách vãng lai? Tra cứu Đơn hàng tại đây</span>
+        </button>
+        <div id="guestTrackPanel" style="margin-top:12px;">
+          <div style="font-size:0.74rem;color:var(--text-muted);margin-bottom:8px;">Thử mã demo: <b>SKY-88921</b> hoặc <b>HD-B2B-2026-01</b> (hoặc mã bạn vừa tạo tại Giỏ hàng)</div>
+          <form onsubmit="return handleTrackOrder(event)" style="display:flex;flex-direction:column;gap:8px;">
+            <input type="text" id="trackCodeInp" value="SKY-88921" placeholder="Mã đơn hàng (VD: SKY-88921)" style="height:42px;padding:0 12px;border-radius:11px;border:1px solid var(--glass-border);" required />
+            <input type="text" id="trackEmailInp" placeholder="Email hoặc SĐT đặt hàng (tùy chọn)" style="height:42px;padding:0 12px;border-radius:11px;border:1px solid var(--glass-border);" />
+            <button type="submit" class="sec3-btn-primary" style="width:100%;">Kiểm tra trạng thái đơn</button>
+          </form>
+          <div id="trackResultBox"></div>
+        </div>
+      </div>
+
+      <p style="font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:16px;line-height:1.5;">
+        Phiên làm việc được xác thực qua máy chủ SKYCRUMB ERP và đồng bộ giữa Cửa hàng 3D, Giỏ hàng và Cổng Quản trị.
+      </p>
+    </section>
+  </main>
+
+  <footer id="s25FooterHost"></footer>
+
+  <script src="./scripts/shared/commerce.js"></script>
+  <script type="module" src="./scripts/pages/auth.js"></script>
+</body>
+</html>

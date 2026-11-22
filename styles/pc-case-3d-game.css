@@ -1,0 +1,355 @@
+/* ============================================================================
+   SKYCRUMB STUDIO — DEDICATED 3D PC CASE GAME PAGE STYLES
+   ============================================================================ */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #071326;
+  color: #f8fafc;
+}
+
+.lab3d-body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.lab3d-topbar {
+  height: 56px;
+  min-height: 56px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(90deg, #07172d 0%, #0b2242 50%, #07172d 100%);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.24);
+  z-index: 10;
+}
+
+.lab3d-brand-group,
+.lab3d-status-group,
+.lab3d-action-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lab3d-brand-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.lab3d-kicker {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #38bdf8;
+}
+.lab3d-brand-title strong {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.lab3d-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  background: rgba(15, 23, 42, 0.72);
+  color: #e2e8f0;
+  white-space: nowrap;
+}
+.lab3d-pill.is-progress b { color: #38bdf8; }
+.lab3d-pill.is-tier-max {
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(52, 211, 153, 0.44);
+  color: #a7f3d0;
+}
+.lab3d-pill.is-tier-warn {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(251, 191, 36, 0.5);
+  color: #fde68a;
+}
+.lab3d-pill.is-tier-low {
+  background: rgba(244, 63, 94, 0.16);
+  border-color: rgba(251, 113, 133, 0.52);
+  color: #fecdd3;
+}
+
+.lab3d-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(255, 255, 255, 0.07);
+  color: #f8fafc;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+.lab3d-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.52);
+}
+.lab3d-btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  border-color: transparent;
+  color: #ffffff;
+}
+.lab3d-btn-primary:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+}
+.lab3d-btn-ghost {
+  background: transparent;
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+.lab3d-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  background: #061326;
+}
+
+#unityGameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #061326;
+  outline: none;
+}
+
+.lab3d-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px;
+  text-align: center;
+  background:
+    radial-gradient(620px 340px at 50% 35%, rgba(2, 132, 199, 0.3), transparent 72%),
+    linear-gradient(160deg, #061326 0%, #0b2548 100%);
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.lab3d-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.lab3d-loader-badge {
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.42);
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.lab3d-loader-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.lab3d-loader-sub {
+  margin: 0;
+  max-width: 560px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+.lab3d-bar-wrap {
+  width: min(460px, 86vw);
+  height: 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  overflow: hidden;
+}
+.lab3d-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0284c7, #38bdf8, #34d399);
+  transition: width 0.18s ease-out;
+}
+.lab3d-pct {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #7dd3fc;
+}
+.lab3d-error {
+  margin-top: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(225, 29, 72, 0.2);
+  border: 1px solid rgba(251, 113, 133, 0.55);
+  color: #fecdd3;
+  max-width: 560px;
+  font-size: 0.84rem;
+}
+
+.lab3d-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 13, 28, 0.78);
+  backdrop-filter: blur(10px);
+}
+.lab3d-modal-backdrop[hidden] {
+  display: none;
+}
+
+.lab3d-modal-card {
+  width: min(640px, 96vw);
+  border-radius: 24px;
+  padding: 26px 28px;
+  background: linear-gradient(155deg, #0b1c38 0%, #0f294d 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.36);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55);
+  color: #f8fafc;
+}
+.lab3d-modal-card h2 {
+  margin: 10px 0 16px;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #34d399;
+}
+.lab3d-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.lab3d-tier-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #7dd3fc;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.lab3d-hint-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(251, 191, 36, 0.42);
+  color: #fde68a;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.lab3d-roll-box {
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(56, 189, 248, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.lab3d-roll-box strong {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fbbf24;
+}
+
+.lab3d-won-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+.lab3d-won-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.lab3d-won-cond {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+.lab3d-won-code {
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: #0284c7;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.lab3d-won-stats {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: #93c5fd;
+  font-weight: 600;
+}
+.lab3d-penalty-note {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(251, 191, 36, 0.42);
+  color: #fde68a;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.lab3d-won-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.lab3d-applied-note {
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: #6ee7b7;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .lab3d-topbar {
+    height: auto;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+  }
+}

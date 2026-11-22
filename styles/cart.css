@@ -1,0 +1,68 @@
+/* ============================================================================
+   S25 // SKYCRUMB — CART & CHECKOUT PAGE STYLES
+   ============================================================================ */
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--drawer-card-border);
+}
+.cart-row-info { min-width: 0; flex: 1; }
+.cart-row-title { font-size: 0.9rem; font-weight: 800; margin-bottom: 4px; }
+.cart-row-sub { font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+.cart-qty-ctrl { display: inline-flex; align-items: center; gap: 6px; }
+.cart-qty-ctrl button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: #f8fcff;
+  color: var(--text-dark);
+  font-weight: 800;
+  cursor: pointer;
+}
+.cart-qty-ctrl button:hover { border-color: var(--accent); }
+
+.promo-quick-chip {
+  border: 1px dashed rgba(2, 132, 199, 0.40);
+  background: rgba(240, 249, 255, 0.9);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.promo-quick-chip:hover { background: var(--accent); color: #fff; border-style: solid; }
+
+.checkout-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: rgba(7, 26, 51, 0.38);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.checkout-modal-backdrop.open { display: flex; }
+.checkout-modal-card {
+  width: min(540px, 100%);
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid var(--glass-border);
+  padding: 26px;
+  box-shadow: 0 32px 80px rgba(7, 48, 88, 0.25);
+}
+
+@media (max-width: 760px) {
+  .cart-row { flex-wrap: wrap; }
+}
+

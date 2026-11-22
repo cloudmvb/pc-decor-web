@@ -1,0 +1,133 @@
+{
+  "scrapedAt": "2026-11-13T08:30:03.044Z",
+  "totalRows": 1984,
+  "uniqueIds": 1984,
+  "uniqueUrls": 1980,
+  "idDuplicatesCount": 0,
+  "urlDuplicatesCount": 4,
+  "categories": [
+    {
+      "key": "pc",
+      "label": "PC Gaming / PC Cao Cấp",
+      "url": "https://ttgshop.vn/pc",
+      "count": 457,
+      "pages": 8,
+      "inStock": 452,
+      "outStock": 5,
+      "otherStatus": 0,
+      "contactPriceCount": 4,
+      "galleryImagesCount": 4354,
+      "missingImageProductsCount": 0,
+      "topGalleryImagesCount": 4354,
+      "descImagesCount": 0
+    },
+    {
+      "key": "pc-van-phong",
+      "label": "PC Văn Phòng",
+      "url": "https://ttgshop.vn/pc-van-phong",
+      "count": 44,
+      "pages": 1,
+      "inStock": 44,
+      "outStock": 0,
+      "otherStatus": 0,
+      "contactPriceCount": 0,
+      "galleryImagesCount": 315,
+      "missingImageProductsCount": 0,
+      "topGalleryImagesCount": 315,
+      "descImagesCount": 0
+    },
+    {
+      "key": "linh-kien-may-tinh",
+      "label": "Linh kiện máy tính",
+      "url": "https://ttgshop.vn/linh-kien-may-tinh",
+      "count": 1193,
+      "pages": 20,
+      "inStock": 1000,
+      "outStock": 193,
+      "otherStatus": 0,
+      "contactPriceCount": 101,
+      "galleryImagesCount": 5892,
+      "missingImageProductsCount": 0,
+      "topGalleryImagesCount": 5892,
+      "descImagesCount": 0
+    },
+    {
+      "key": "man-hinh-may-tinh",
+      "label": "Màn hình máy tính",
+      "url": "https://ttgshop.vn/man-hinh-may-tinh",
+      "count": 126,
+      "pages": 3,
+      "inStock": 106,
+      "outStock": 20,
+      "otherStatus": 0,
+      "contactPriceCount": 0,
+      "galleryImagesCount": 714,
+      "missingImageProductsCount": 0,
+      "topGalleryImagesCount": 714,
+      "descImagesCount": 0
+    },
+    {
+      "key": "gaming-gear",
+      "label": "Gaming Gear",
+      "url": "https://ttgshop.vn/gaming-gear",
+      "count": 164,
+      "pages": 3,
+      "inStock": 147,
+      "outStock": 17,
+      "otherStatus": 0,
+      "contactPriceCount": 1,
+      "galleryImagesCount": 1151,
+      "missingImageProductsCount": 0,
+      "topGalleryImagesCount": 971,
+      "descImagesCount": 180
+    }
+  ],
+  "urlDuplicates": [
+    {
+      "url": "https://ttgshop.vn/tan-nhiet-nuoc-aio-lian-li-hydroshift-ii-oled-curved-360tl-black",
+      "name": "Tản nhiệt nước AIO Lian Li HydroShift II OLED Curved 360TL Black",
+      "cats": [
+        "linh-kien-may-tinh",
+        "linh-kien-may-tinh"
+      ]
+    },
+    {
+      "url": "https://ttgshop.vn/tan-nhiet-nuoc-gamdias-aura-gl360-lite-ii-lcd",
+      "name": "Tản nhiệt nước Gamdias AURA GL360 LITE II LCD (WCAURAGL360LTIILCDBLGA)",
+      "cats": [
+        "linh-kien-may-tinh",
+        "linh-kien-may-tinh"
+      ]
+    },
+    {
+      "url": "https://ttgshop.vn/nguon-may-tinh-super-flower-leadex-viii-platinum-pro-1000w-atx-3-1-white-cybenetics-platinum",
+      "name": "Nguồn máy tính Super Flower LEADEX VIII Platinum PRO 1000W ATX 3.1 WHITE | Cybenetics Platinum (SF-1000F14SP(T) - WH)",
+      "cats": [
+        "linh-kien-may-tinh",
+        "linh-kien-may-tinh"
+      ]
+    }
+  ],
+  "imagesScrapedAt": "2026-11-13T09:01:12.849Z",
+  "totalGalleryUrlsFound": 12428,
+  "totalImagesDownloadedOrCached": 12426,
+  "totalImageFallback250": 0,
+  "totalImageFailed": 2,
+  "totalImagesSizeBytes": 3309896413,
+  "totalImagesSizeMB": 3156.56,
+  "detailErrors": 1,
+  "failedDownloads": [
+    {
+      "id": "1072100168",
+      "name": "PC TTG AMD GAMING RYZEN 5 7500X3D - RTX 5060 8GB OC",
+      "idx": 12,
+      "url": "https://ttgshop.vn/media/product/1072100168_pc_ttg_amd_gaming_ryzen_5_7500x3d_rtx_5060_8gb_oc_3__2_.jpg"
+    },
+    {
+      "id": "1067388198",
+      "name": "PC AMD GAMING Ryzen 5 8400F - RTX 5060 8GB BLACK (ALL NEW - Bảo hành 36 tháng)",
+      "idx": 17,
+      "url": "https://ttgshop.vn/media/product/1067388198_pc_amd_gaming_ryzen_5_8400f_rtx_5060_8gb_black__1_.jpg"
+    }
+  ]
+}

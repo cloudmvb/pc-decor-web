@@ -1,0 +1,6 @@
+{
+  "loaderUrl": "unity-pc-builder.loader.js",
+  "dataUrl": "unity-pc-builder.data",
+  "frameworkUrl": "unity-pc-builder.framework.js",
+  "codeUrl": "unity-pc-builder.wasm"
+}

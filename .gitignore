@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables (keep .env.example tracked)
+.env
+.env.*.local
+
+# Local SQLite runtime databases
+database/*.db
+database/*.db-shm
+database/*.db-wal
+
+# Heavy media & generated assets (not suitable for standard Git history)
+data/catalog/images/
+assets/images/renders/
+docs/**/*.mp4
+*.mp4
+
+# OS & log files
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*

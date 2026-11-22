@@ -1,0 +1,82 @@
+/* ============================================================================
+   S25 // SKYCRUMB — AUTH & ORDER TRACKING PAGE STYLES
+   ============================================================================ */
+
+.auth-express-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.auth-express-btn {
+  height: 44px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(7, 26, 51, 0.16);
+  background: #fff;
+  color: var(--text-dark);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all .18s ease;
+}
+.auth-express-btn.dark { background: #071a33; color: #fff; border-color: #071a33; }
+.auth-express-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+.auth-check-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.auth-check-line input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.auth-msg-box {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: none;
+}
+.auth-msg-box.ok { display: block; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); color: #047857; }
+.auth-msg-box.err { display: block; background: rgba(225, 29, 72, 0.10); border: 1px solid rgba(225, 29, 72, 0.30); color: #be123c; }
+
+.auth-guest-panel {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(2, 132, 199, 0.16);
+}
+.auth-order-result {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(240, 249, 255, 0.90);
+  border: 1px solid rgba(2, 132, 199, 0.24);
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.auth-role-section {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(248, 252, 255, 0.9);
+  border: 1px solid rgba(2, 132, 199, 0.16);
+}
+.auth-role-section-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 760px) {
+  .auth-express-row { grid-template-columns: 1fr; }
+}
+
